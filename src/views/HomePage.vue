@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="content-bg">
-      <div class="discover-section">
+      <div class="discover-section mt-4">
         <img src="/public/img/logo.png" alt="Logo" class="logo" />
         <h2 class="center-title">Discover Morocco</h2>
         <ion-searchbar
@@ -183,7 +183,8 @@ onUnmounted(() => {
 
 .logo {
   display: block;
-  margin: 2% auto;
+  margin: auto;
+  width: 200px;
 }
 
 .center-title {

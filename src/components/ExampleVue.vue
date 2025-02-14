@@ -3,18 +3,18 @@
   <ion-menu content-id="main-content" side="start" class="custom-menu">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Menu Content</ion-title>
+        <ion-title color="light">Menu Content</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding"> This is the menu content. </ion-content>
   </ion-menu>
 
   <!-- Main content wrapped in ion-page -->
-  <ion-page id="main-content">
+  <ion-page id="main-content" class="nav-menu">
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="end">
-          <!-- Button to open the menu -->
+          <!-- Botón para abrir el menú -->
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
 
@@ -24,12 +24,13 @@
           </ion-button>
         </ion-buttons>
 
-        <ion-title class="nav-menu text-center">Menu</ion-title>
+        <!-- Título dinámico -->
+        <ion-title class="nav-menu text-center text-light">{{ pageTitle }}</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <!-- Tabs Section -->
-    <ion-tabs class="nav-menu">
+    <!-- Sección de Tabs -->
+    <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="home" href="/home">
@@ -54,8 +55,6 @@
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>
-
-  <div class="container"></div>
 </template>
 
 <script setup lang="ts">
@@ -75,13 +74,46 @@ import {
   IonLabel,
   IonIcon,
 } from "@ionic/vue";
-import { arrowBack } from "ionicons/icons";
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
+import { arrowBack, home, notifications, settings, person } from "ionicons/icons";
 
-import { home, notifications, settings, person } from "ionicons/icons";
+// Estado del título de la página
+const pageTitle = ref("Home");
+
+// Detectar cambios en la ruta
+const rout = useRoute();
+
+watch(() => rout.path, (path) => {
+  switch (path) {
+    case "/home":
+      pageTitle.value = "Home";
+      break;
+    case "/notifications":
+      pageTitle.value = "Notifications";
+      break;
+    case "/settings":
+      pageTitle.value = "Settings";
+      break;
+    case "/person":
+      pageTitle.value = "Person";
+      break;
+  }
+});
 </script>
 
 <style scoped>
 .nav-menu {
   background-color: orangered;
+}
+
+ion-toolbar, ion-tab-bar {
+  --background: orangered !important;
+  --ion-background-color: orangered !important;
+}
+
+ion-tab-button, ion-menu-button, ion-button {
+  --color-selected: white;
+  --color: white;
 }
 </style>
