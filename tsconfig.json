@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "types": ["@ionic/vue"],
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "Node",
