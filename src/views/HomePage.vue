@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Library</ion-title>
+        <ion-title>Home</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="content-bg">
@@ -18,10 +18,12 @@
       <!-- Places to Go Section -->
       <div class="container">
         <div class="places-section mt-5 mb-5">
-          <h1>Places to go</h1>
-          <a href="#" @click.prevent="viewAll" class="view-all-link"
-            >View All</a
-          >
+          <h1 class="mar-tp-0">Places to go</h1>
+          <ion-buttons slot="end">
+            <ion-button class="custom-button" router-link="/places-to-go"
+              >View All</ion-button
+            >
+          </ion-buttons>
         </div>
       </div>
 
@@ -51,10 +53,16 @@
       <!-- Popular Section -->
       <div class="container mt-5 mb-5">
         <div class="places-section">
-          <h1>Popular</h1>
-          <a href="#" @click.prevent="" class="view-all-link">View All</a>
+          <h1 class="mar-tp-0">Popular</h1>
+          <ion-buttons slot="end">
+            <ion-button router-link="/popular" class="custom-button"
+              >View All</ion-button
+            >
+          </ion-buttons>
         </div>
       </div>
+      <PopularComponent />
+      <FooterComponent />
     </ion-content>
   </ion-page>
 </template>
@@ -66,6 +74,8 @@ import {
   IonTitle,
   IonContent,
   IonPage,
+  IonButtons,
+  IonButton,
 } from "@ionic/vue";
 
 import { ref, onMounted, onUnmounted } from "vue";
@@ -81,10 +91,8 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-const viewAll = () => {
-  console.log("View All clicked");
-};
+import PopularComponent from "@/components/PopularComponent.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 
 const cards = ref([
   {
@@ -188,7 +196,12 @@ onUnmounted(() => {
 }
 
 .center-title {
-  color: black;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  padding: 10px;
+  text-shadow: 2px 2px 5px black, -1px -1px 5px black, 1px -1px 5px black,
+    -1px 1px 5px black, 1px 1px 5px black;
 }
 
 .searchBar {
@@ -207,7 +220,7 @@ onUnmounted(() => {
 /* Swiper */
 .placesToGoCard {
   width: 100%;
-  padding: 20px;
+  padding: 80px 0px;
   background-image: url("public/img/bg-placetogo.png");
 }
 
@@ -226,13 +239,13 @@ ion-card {
   width: 100%;
   border-radius: 15px; /* Optional: Adds rounded corners to the card */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow to the cards */
-  margin: 0px;
+  margin: 50px;
+  height: auto;
 }
 
 ion-card-title,
 ion-card-content {
   text-align: center;
-  padding: 10px;
 }
 
 /* Mobile View Adjustments */
@@ -240,5 +253,18 @@ ion-card-content {
   ion-card-title {
     font-size: 1rem; /* Smaller size for mobile */
   }
+}
+
+.mar-tp-0 {
+  margin-top: 0px !important;
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+}
+
+.custom-button {
+  --background: #ff5733; /* Cambia el color de fondo */
+  --color: white; /* Cambia el color del texto */
+  --border-radius: 8px; /* Establece un borde redondeado */
+  padding: 10px;
 }
 </style>

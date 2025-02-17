@@ -1,2 +1,12 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+@font-face {
+    font-family: 'Brice';
+    src: url('@/assets/fonts/Brice-Regular.ttf') format('truetype');
+    /* Update with correct path */
+}
+
+* {
+    font-family: 'Brice', sans-serif;
+    font-weight: 300;
+}
