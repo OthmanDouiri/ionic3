@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-content>
-      <div class="container mt-5 login-page">
+      <div class="container  login-page d-flex justify-content-center align-items-center vh-100">
         <img src="/img/logo.png" alt="Logo" class="logo" />
         <h1 class="b-semi">Login</h1>
 
@@ -64,7 +64,7 @@
 
         <!-- Sign Up Link -->
         <div class="signup-link">
-          <p>Don't have an account? <router-link to="/signup">Sign Up</router-link></p>        </div>
+          <p>Don't have an account? <router-link to="/signup/1">Sign Up</router-link></p>        </div>
       </div>
     </ion-content>
   </ion-page>

@@ -128,7 +128,9 @@ import {
   IonItem,
 } from "@ionic/vue";
 import { ref, watch } from "vue";
-import { useRoute,  } from "vue-router";
+import { useRoute  } from "vue-router";
+import { onMounted } from "vue";
+
 import {
   arrowBack,
   home,
@@ -152,69 +154,48 @@ const pageTitle = ref("Home");
 const isLoginPage = ref(false);
 
 
-
-
 // Detectar cambios en la ruta
-const rout = useRoute();
+const route = useRoute();
 
-watch(
-  () => rout.path,
-  (path) => {
-    switch (path) {
-      case "/home":
-        pageTitle.value = "Home";
-        isLoginPage.value = false; 
-
-        break;
-      case "/notifications":
-        pageTitle.value = "Notifications";
-        isLoginPage.value = false; 
-
-        break;
-      case "/settings":
-        pageTitle.value = "Settings";
-        isLoginPage.value = false; 
-
-        break;
-      case "/likes":
-        pageTitle.value = "Likes";
-        isLoginPage.value = false; 
-
-        break;
-      case "/person":
-        pageTitle.value = "Profil";
-        isLoginPage.value = false; 
-
-        break;
-      case "/places-to-go":
-        pageTitle.value = "Places to go";
-        isLoginPage.value = false; 
-
-        break;
-      case "/popular":
-        pageTitle.value = "Popular";
-        isLoginPage.value = false; 
-        break;
-      case "/login":
-        pageTitle.value = "Login";
-        isLoginPage.value = true; // Masquer le bouton du menu sur la page de connexion
-        break;
-      case "/privacy":
-        pageTitle.value = "Privacy";
-        isLoginPage.value = false; 
-        break;
-        case "/security":
-        pageTitle.value = "Security";
-        isLoginPage.value = false; 
-        break;
-        case "/signup":
-        pageTitle.value = "Sign Up";
-        isLoginPage.value = true; // Masquer le bouton du menu sur la page de connexion
-        break;
-      
-    }
+const updatePageState = () => {
+  const loginPages = ["/login", "/signup/1"];
+  isLoginPage.value = loginPages.includes(route.path);
+  switch (route.path) {
+    case "/home":
+      pageTitle.value = "Home";
+      break;
+    case "/notifications":
+      pageTitle.value = "Notifications";
+      break;
+    case "/settings":
+      pageTitle.value = "Settings";
+      break;
+    case "/likes":
+      pageTitle.value = "Likes";
+      break;
+    case "/person":
+      pageTitle.value = "Profil";
+      break;
+    case "/places-to-go":
+      pageTitle.value = "Places to go";
+      break;
+    case "/popular":
+      pageTitle.value = "Popular";
+      break;
+    case "/privacy":
+      pageTitle.value = "Privacy";
+      break;
+    case "/security":
+      pageTitle.value = "Security";
+      break;
+    case "/login":
+      pageTitle.value = "Login";
+      break;
   }
-);
+};
+
+watch(() => route.path, updatePageState);
+onMounted(updatePageState);
 
 // Cerrar el menú
 const closeMenu = () => {
