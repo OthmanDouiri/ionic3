@@ -60,7 +60,7 @@
       <ion-toolbar>
         <ion-buttons slot="end">
           <!-- Botón para abrir el menú -->
-          <ion-menu-button></ion-menu-button>
+          <ion-menu-button v-if="!isLoginPage"></ion-menu-button>
         </ion-buttons>
 
         <ion-buttons slot="start">
@@ -75,9 +75,9 @@
     </ion-header>
 
     <!-- Sección de Tabs -->
-    <ion-tabs>
+    <ion-tabs >
       <ion-router-outlet></ion-router-outlet>
-      <ion-tab-bar slot="bottom">
+      <ion-tab-bar v-if="!isLoginPage" slot="bottom">
         <ion-tab-button tab="home" href="/home">
           <ion-icon :icon="home" />
           <ion-label>Home</ion-label>
@@ -128,7 +128,7 @@ import {
   IonItem,
 } from "@ionic/vue";
 import { ref, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute,  } from "vue-router";
 import {
   arrowBack,
   home,
@@ -147,6 +147,13 @@ import {
 // Estado del título de la página
 const pageTitle = ref("Home");
 
+
+// Détecter si la page actuelle est la page de connexion
+const isLoginPage = ref(false);
+
+
+
+
 // Detectar cambios en la ruta
 const rout = useRoute();
 
@@ -156,31 +163,55 @@ watch(
     switch (path) {
       case "/home":
         pageTitle.value = "Home";
+        isLoginPage.value = false; 
+
         break;
       case "/notifications":
         pageTitle.value = "Notifications";
+        isLoginPage.value = false; 
+
         break;
       case "/settings":
         pageTitle.value = "Settings";
+        isLoginPage.value = false; 
+
         break;
       case "/likes":
         pageTitle.value = "Likes";
+        isLoginPage.value = false; 
+
         break;
       case "/person":
         pageTitle.value = "Profil";
+        isLoginPage.value = false; 
+
         break;
       case "/places-to-go":
         pageTitle.value = "Places to go";
+        isLoginPage.value = false; 
+
         break;
       case "/popular":
         pageTitle.value = "Popular";
+        isLoginPage.value = false; 
         break;
       case "/login":
         pageTitle.value = "Login";
+        isLoginPage.value = true; // Masquer le bouton du menu sur la page de connexion
         break;
-      default:
-        pageTitle.value = "Home";
+      case "/privacy":
+        pageTitle.value = "Privacy";
+        isLoginPage.value = false; 
         break;
+        case "/security":
+        pageTitle.value = "Security";
+        isLoginPage.value = false; 
+        break;
+        case "/signup":
+        pageTitle.value = "Sign Up";
+        isLoginPage.value = true; // Masquer le bouton du menu sur la page de connexion
+        break;
+      
     }
   }
 );

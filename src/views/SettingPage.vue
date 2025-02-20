@@ -99,6 +99,7 @@ import {
   logOutOutline,
   chevronForwardOutline,
 } from "ionicons/icons";
+import router from "@/router";
 
 // State variables
 const darkMode = ref(false);
@@ -107,13 +108,13 @@ const language = ref("en");
 
 // Methods for navigation
 const editProfile = () => {
-  console.log("Navigating to Edit Profile...");
+   router.push('/person'); 
 };
 const openPrivacy = () => {
-  console.log("Opening Privacy Settings...");
+  router.push('/privacy'); 
 };
 const openSecurity = () => {
-  console.log("Opening Security Settings...");
+  router.push('/security'); 
 };
 const logout = () => {
   console.log("Logging out...");

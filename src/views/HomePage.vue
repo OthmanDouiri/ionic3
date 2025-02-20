@@ -110,7 +110,7 @@ const cards = ref([
   {
     title: "Merzouga",
     img: "https://images.unsplash.com/photo-1526994387180-9557a434b046?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVyem91Z2F8ZW58MHx8MHx8fDA%3D",
-    content: "Economic Powerhouse",
+    content: "Powerhouse",
     alt: "Image 3",
   },
   {

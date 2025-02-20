@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Brice';
+    src: url('@/assets/fonts/Brice-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brice';
+    src: url('@/assets/fonts/Brice-Light.otf') format('opentype');
+    font-weight: 300; /* o normal */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brice';
+    src: url('@/assets/fonts/Brice-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brice';
+    src: url('@/assets/fonts/Brice-SemiBold.otf') format('opentype');
+    font-weight: 600; /* o semi-bold */
+    font-style: normal;
+}
+
+
+
+.b-light {
+    font-family: 'Brice', sans-serif !important;
+    font-weight: 300 !important; /* o normal */
+}
+
+.b-reg {
+    font-family: 'Brice', sans-serif !important;
+    font-weight: normal !important;
+}
+
+.b-semi {
+    font-family: 'Brice', sans-serif !important;
+    font-weight: 600 !important; /* semi-bold */
+}
+
+.b-bold {
+    font-family: 'Brice', sans-serif !important;
+    font-weight: bold !important;
+}

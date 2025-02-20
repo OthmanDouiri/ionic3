@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import './assets/fonts/fonts.css'; // importar el archivo fonts.css
 
 import { IonicVue } from '@ionic/vue';
 

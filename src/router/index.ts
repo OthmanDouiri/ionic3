@@ -7,25 +7,19 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     redirect: "/start",
   },
+  {
+    path: "/start",
+    component: () => import("@/views/StartPage.vue"), 
+  },
 
   {
     path: "/",
     component: ExampleVue,
     children: [
       {
-        path: "",
-        redirect: "/home",
-      },
-
-      {
         path: "login",
         component: () => import("@/views/LoginPage.vue"),
       },
-      {
-        path: "start",
-        component: () => import("@/views/StartPage.vue"),
-      },
-
       {
         path: "home",
         component: () => import("@/views/HomePage.vue"),
@@ -53,6 +47,18 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "places-to-go",
         component: () => import("@/views/PlacetogoPage.vue"),
+      },
+      {
+        path: "privacy",
+        component: () => import("@/views/PrivacyPage.vue"),
+      },
+      {
+        path: "security",
+        component: () => import("@/views/SecurityPage.vue"),
+      },
+      {
+        path: "signup",
+        component: () => import("@/views/SignUp/SignUpPage1.vue"),
       },
     ],
   },

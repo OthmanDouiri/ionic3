@@ -10,24 +10,24 @@
 
         <!-- Section: P -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+          <h6 class="text-uppercase mb-4 b-semi text-white">
             Discover Morocco
           </h6>
-          <p><a href="#" class="text-white">Discover Morocco </a></p>
-          <p><a href="#" class="text-white">Discover Morocco </a></p>
-          <p><a href="#" class="text-white">Discover Morocco </a></p>
+          <p><a href="#" class="text-white b-light">Discover Morocco </a></p>
+          <p><a href="#" class="text-white b-light">Discover Morocco </a></p>
+          <p><a href="#" class="text-white b-light">Discover Morocco </a></p>
         </div>
 
         <!-- Section: Links -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold text-white">links</h6>
-          <p><a href="#" class="text-white">Places to go</a></p>
-          <p><a href="#" class="text-white">Popular</a></p>
+          <h6 class="text-uppercase mb-4  text-white">links</h6>
+          <p><a href="#" class="text-white b-light">Places to go</a></p>
+          <p><a href="#" class="text-white b-light">Popular</a></p>
         </div>
 
         <!-- Section: Contact Info -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+          <h6 class="text-uppercase mb-4 b-semi text-white">
             Contact
           </h6>
           <p class="text-white">Beni Mellal A61</p>
