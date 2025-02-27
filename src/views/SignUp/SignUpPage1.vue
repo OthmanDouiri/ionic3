@@ -1,7 +1,9 @@
 <template>
   <ion-page>
     <ion-content>
-      <div class="container d-flex justify-content-center align-items-center vh-100">
+      <div
+        class="container d-flex justify-content-center align-items-center vh-100"
+      >
         <div class="signup-page text-center">
           <img src="/img/logo.png" alt="Logo" class="logo" />
           <h1 class="b-semi">Create Account</h1>
@@ -21,7 +23,11 @@
           </div>
 
           <!-- Continue Button -->
-          <ion-button class="orange-button w-100" expand="block" router-link="/signup/2">
+          <ion-button
+            class="orange-button w-100"
+            expand="block"
+            router-link="/signup/2"
+          >
             Continue
             <ion-icon slot="end" :icon="arrowForwardOutline"></ion-icon>
           </ion-button>
@@ -30,7 +36,11 @@
           <div class="social-login mt-3 d-flex justify-content-center">
             <h3 class="me-3">Log in with</h3>
             <div class="social-buttons d-flex justify-content-center gap-2">
-              <ion-button class="google-button" expand="block" href="/auth/google">
+              <ion-button
+                class="google-button"
+                expand="block"
+                href="/auth/google"
+              >
                 <ion-icon slot="icon-only" :icon="logoGoogle"></ion-icon>
               </ion-button>
               <ion-button class="facebook-button" expand="block">
@@ -41,7 +51,9 @@
 
           <!-- Login Link -->
           <div class="signup-link mt-3">
-            <p>Have an account? <router-link to="/login">Log in</router-link></p>
+            <p>
+              Have an account? <router-link to="/login">Log in</router-link>
+            </p>
           </div>
         </div>
       </div>
@@ -120,7 +132,8 @@ body {
   text-align: center;
 }
 
-.google-button, .facebook-button {
+.google-button,
+.facebook-button {
   --border-radius: 12px;
   width: 48px;
   height: 48px;

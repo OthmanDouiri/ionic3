@@ -1,17 +1,19 @@
 <template>
-  <section class="popular-components mt-4">
+  <section class="popular-components mt-5">
     <div class="container">
       <div
         v-for="(item, index) in popularItems"
         :key="index"
-        class="popular-card mt-4"
+        class="popular-card mb-3 mt-3"
       >
         <div class="popular-card-content">
           <img :src="item.img" :alt="item.alt" class="popular-card-img" />
           <div class="popular-card-body">
             <h3 class="popular-card-title">{{ item.title }}</h3>
             <p class="popular-card-description">{{ item.description }}</p>
-            <ion-button color="warning" class="">Detail</ion-button>
+            <ion-button class="detail-button" @click="goToDetail(item.title)"
+              >Detail</ion-button
+            >
           </div>
         </div>
       </div>
@@ -22,7 +24,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { IonButton } from "@ionic/vue";
+import router from "@/router";
 
+// Lista de artículos populares
 const popularItems = ref([
   {
     title: "Morocco's 2030 World Cup Preparations Committee Meets in Fes",
@@ -39,136 +43,116 @@ const popularItems = ref([
     alt: "Morocco’s tourism",
   },
   {
-    title: "Golf in morocco: More than one hundred years of history…",
+    title: "Golf in Morocco: More than One Hundred Years of History…",
     img: "https://www.visitmorocco.com/golf/wp-content/uploads/2023/01/VM-story-golf-morocco1.png",
-    description: "Golf in morocco: More than one hundred",
-    alt: "Golf in morocco: More than one hundred",
+    description: "Discover the rich history of golf in Morocco.",
+    alt: "Golf in Morocco",
   },
 ]);
+
+// Función para redirigir a la página de detalles
+const goToDetail = (title: string) => {
+  router.push({ name: "DetailsPage", params: { title } });
+};
 </script>
 
 <style scoped>
+/* Estilos generales */
 .popular-components {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
-  background-color: #706666;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
 }
 
+/* Tarjetas */
 .popular-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 25px;
 }
 
+.popular-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenido de la tarjeta */
 .popular-card-content {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
-  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
 }
 
+/* Imagen */
 .popular-card-img {
-  width: 40%;
-  height: 100%;
+  width: 35%;
+  height: auto;
   object-fit: cover;
-  border-radius: 5px 0px 0px;
-  flex-shrink: 0;
 }
 
+/* Cuerpo del contenido */
 .popular-card-body {
   flex: 1;
-  padding: 10px 0;
+  text-align: left;
+  padding: 10px;
 }
 
+/* Título */
 .popular-card-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #333;
   margin-bottom: 10px;
 }
 
+/* Descripción */
 .popular-card-description {
   font-size: 1rem;
-  color: #555;
+  color: #666;
   margin-bottom: 15px;
 }
 
-.popular-card-button {
-  background-color: #ff5722;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* Botón */
+.detail-button {
+  --background: #ff5919;
+  --color: white;
+  --border-radius: 25px;
   font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.popular-card-button:hover {
-  background-color: #e64a19;
+.detail-button:hover {
+  transform: scale(1.05);
+  --background: #e64a19;
 }
 
-.card-separator {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin: 20px 0;
-}
-
-template {
-  font-family: "Poppins", sans-serif;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #555;
-}
-
-/* Media Queries */
+/* Diseño Responsivo */
 @media (max-width: 1024px) {
-  .popular-card-img {
-    width: inherit; /* Smaller image on medium screens */
-  }
-
-  .popular-card-body {
-    padding: 10px;
-    text-align: center;
-  }
-
-  .popular-card-button {
-    display: block;
-    margin: 0 auto; /* Center the button */
-  }
-}
-
-@media (max-width: 768px) {
-  .popular-card-content {
+  .popular-card {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .popular-card-img {
     width: 100%;
-    height: auto; /* Allow image to scale on small screens */
   }
 
   .popular-card-body {
-    width: 100%;
+    text-align: center;
   }
 
-  .popular-card-title {
-    font-size: 1.2rem; /* Adjust font size for smaller screens */
-  }
-
-  .popular-card-description {
-    font-size: 0.95rem; /* Slightly smaller font for readability */
-  }
-
-  .popular-card-button {
-    font-size: 0.9rem; /* Smaller buttons for better fit */
-    padding: 8px 12px;
+  .detail-button {
     display: block;
-    margin: 0 auto; /* Center the button */
+    margin: 0 auto;
   }
 }
 </style>

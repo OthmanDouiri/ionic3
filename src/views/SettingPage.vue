@@ -108,16 +108,16 @@ const language = ref("en");
 
 // Methods for navigation
 const editProfile = () => {
-   router.push('/person'); 
+  router.push("/person");
 };
 const openPrivacy = () => {
-  router.push('/privacy'); 
+  router.push("/privacy");
 };
 const openSecurity = () => {
-  router.push('/security'); 
+  router.push("/security");
 };
 const logout = () => {
-  console.log("Logging out...");
+  router.push ("/login");
 };
 </script>
 

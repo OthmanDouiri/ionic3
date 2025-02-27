@@ -2,21 +2,21 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Search</ion-title>
+        <ion-title class="center-text">Profile</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content class="ion-padding">
+    <ion-content class="ion-padding center-content">
       <!-- Profile Photo Section -->
       <div class="profile-photo">
-        <ion-avatar>
+        <ion-avatar class="avatar">
           <img :src="profileImage" />
         </ion-avatar>
         <ion-button expand="full" @click="changePhoto">Change Photo</ion-button>
       </div>
 
       <!-- Profile Form Section -->
-      <ion-list>
+      <ion-list class="form-list">
         <!-- Full Name -->
         <ion-item>
           <ion-label position="stacked">Full Name</ion-label>
@@ -65,6 +65,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import {
   IonHeader,
   IonToolbar,
@@ -79,22 +80,17 @@ import {
   IonInput,
   IonDatetime,
 } from "@ionic/vue";
-import { ref } from "vue";
 
-// Data binding
-const profileImage = ref("img/prof.png"); // Placeholder image
+const profileImage = ref("img/prof.png");
 const fullName = ref("");
 const email = ref("");
 const phoneNumber = ref("");
 const dob = ref("");
 
-// Method to handle profile photo change
 const changePhoto = () => {
   console.log("Changing profile photo...");
-  // Logic to upload a new photo
 };
 
-// Method to save changes
 const saveChanges = () => {
   console.log("Saving changes...");
   console.log({
@@ -103,11 +99,21 @@ const saveChanges = () => {
     phoneNumber: phoneNumber.value,
     dob: dob.value,
   });
-  // Logic to save changes
 };
 </script>
 
 <style scoped>
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
 .profile-photo {
   display: flex;
   flex-direction: column;
@@ -116,14 +122,19 @@ const saveChanges = () => {
   margin-bottom: 20px;
 }
 
-ion-avatar {
+.avatar {
   width: 120px;
   height: 120px;
   margin-bottom: 10px;
 }
 
+.form-list {
+  width: 100%;
+  max-width: 400px;
+}
+
 ion-button {
-  --background: #585454; /* Set custom background color */
-  --color: white; /* Set text color */
+  --background: #585454;
+  --color: white;
 }
 </style>

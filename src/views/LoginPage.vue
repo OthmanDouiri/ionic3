@@ -1,70 +1,72 @@
 <template>
   <ion-page>
     <ion-content>
-      <div class="container  login-page d-flex justify-content-center align-items-center vh-100">
-        <img src="/img/logo.png" alt="Logo" class="logo" />
-        <h1 class="b-semi">Login</h1>
+      <div
+        class="container d-flex justify-content-center align-items-center vh-100"
+      >
+        <div class="login-page text-centre">
+          <img src="/img/logo.png" alt="Logo" class="logo mt-3" />
+          <h1 class="b-semi">Login</h1>
 
-        <!-- Email Input -->
-        <div class="input-container">
-          <label class="text-start">Email</label>
-          <ion-item class="custom-item">
-            <ion-input
-              class="custom-input"
-              v-model="email"
-              type="email"
-              placeholder="Enter your email"
-              required
-            ></ion-input>
-          </ion-item>
-        </div>
+          <!-- Email Input -->
+          <div class="input-container">
+            <label class="text-start">Email</label>
+            <ion-item class="custom-item">
+              <ion-input
+                class="custom-input"
+                v-model="email"
+                type="email"
+                placeholder="Enter your email"
+                required
+              ></ion-input>
+            </ion-item>
+          </div>
 
-        <!-- Password Input -->
-        <div class="input-container">
-          <label class="text-start">Password</label>
-          <ion-item class="custom-item">
-            <ion-input
-              class="custom-input"
-              v-model="password"
-              type="password"
-              placeholder="Enter your password"
-              required
-            ></ion-input>
-          </ion-item>
-        </div>
+          <!-- Password Input -->
+          <div class="input-container">
+            <label class="text-start">Password</label>
+            <ion-item class="custom-item">
+              <ion-input
+                class="custom-input"
+                v-model="password"
+                type="password"
+                placeholder="Enter your password"
+                required
+              ></ion-input>
+            </ion-item>
+          </div>
 
-        <!-- Login Button -->
-        <ion-button
-          class="orange-button"
-          expand="block"
-          :router-link="true"
-          router-direction="forward"
-          to="/login"
-        >
-          Log In
-          <ion-icon slot="end" :icon="arrowForwardOutline"></ion-icon>
-        </ion-button>
+          <!-- Login Button -->
+          <ion-button class="orange-button" router-link="/home" expand="block">
+            Log In
+            <ion-icon slot="end" :icon="arrowForwardOutline"></ion-icon>
+          </ion-button>
 
-        <!-- Social Login -->
-        <div class="social-login">
-          <div class="social-buttons">
-            <h3>Login with</h3>
-            <ion-button
-              class="google-button"
-              expand="block"
-              href="/auth/google"
-            >
-              <ion-icon slot="icon-only" :icon="logoGoogle"></ion-icon>
-            </ion-button>
-            <ion-button class="facebook-button" expand="block">
-              <ion-icon slot="icon-only" :icon="logoFacebook"></ion-icon>
-            </ion-button>
+          <!-- Social Login -->
+          <div class="social-login">
+            <div class="social-buttons">
+              <h3>Login with</h3>
+              <ion-button
+                class="google-button"
+                expand="block"
+                href="/auth/google"
+              >
+                <ion-icon slot="icon-only" :icon="logoGoogle"></ion-icon>
+              </ion-button>
+              <ion-button class="facebook-button" expand="block">
+                <ion-icon slot="icon-only" :icon="logoFacebook"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+
+          <!-- Sign Up Link -->
+          <div class="signup-link">
+            <p>
+              Don't have an account?
+              <router-link to="/signup/1">Sign Up</router-link>
+            </p>
           </div>
         </div>
-
-        <!-- Sign Up Link -->
-        <div class="signup-link">
-          <p>Don't have an account? <router-link to="/signup/1">Sign Up</router-link></p>        </div>
       </div>
     </ion-content>
   </ion-page>
@@ -102,15 +104,12 @@ body {
 
 .logo {
   width: 250px;
-  height: auto;
-  margin-bottom: 20px;
 }
 
 /* Input Container */
 .input-container {
   width: 100%;
   max-width: 400px;
-  margin-bottom: 20px;
 }
 
 .custom-item {
@@ -141,7 +140,6 @@ body {
   font-weight: bold;
   transition: background 0.3s ease; /* Smooth hover effect */
 }
-
 
 /* Social Login Section */
 .social-login {

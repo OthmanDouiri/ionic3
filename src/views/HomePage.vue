@@ -171,7 +171,7 @@ onUnmounted(() => {
 
 /* Global Styles */
 .content-bg {
-  --background: #fbf5d5;
+  background-color: #ffffff;
 }
 
 /* Header */

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "@ionic/vue-router";
 import { RouteRecordRaw } from "vue-router";
-import ExampleVue from "@/components/ExampleVue.vue";
+import ExampleVue from "@/components/TabsComponent.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/start",
-    component: () => import("@/views/StartPage.vue"), 
+    component: () => import("@/views/StartPage.vue"),
   },
 
   {
@@ -59,6 +59,38 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "signup/1",
         component: () => import("@/views/SignUp/SignUpPage1.vue"),
+      },
+      {
+        path: "signup/2",
+        component: () => import("@/views/SignUp/SignUpPage2.vue"),
+      },
+      {
+        path: "signup/3",
+        component: () => import("@/views/SignUp/SignUpPage3.vue"),
+      },
+      {
+        path: "signup/4",
+        component: () => import("@/views/SignUp/SignUpPage4.vue"),
+      },
+      {
+        path: "signup/5",
+        component: () => import("@/views/SignUp/SignUpPage5.vue"),
+      },
+      {
+        path: "signup/6",
+        component: () => import("@/views/SignUp/SignUpPage6.vue"),
+      },
+      {
+        path: "welcome",
+        component: () => import("@/views/WelcomePage.vue"),
+      },
+      {
+        path: "about",
+        component: () => import("@/views/AboutPage.vue"),
+      },
+      {
+        path: "contact",
+        component: () => import("@/views/ContactPage.vue"),
       },
     ],
   },
