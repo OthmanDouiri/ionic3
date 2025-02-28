@@ -70,7 +70,7 @@
 
     <!-- Sección de Tabs -->
     <ion-tabs>
-      <ion-router-outlet></ion-router-outlet>
+      <ion-router-outlet :key="$route.fullPath"></ion-router-outlet>
       <ion-tab-bar v-if="!isLoginPage" slot="bottom">
         <ion-tab-button tab="home" href="/home">
           <ion-icon :icon="home" />

@@ -11,7 +11,7 @@
           <div class="popular-card-body">
             <h3 class="popular-card-title">{{ item.title }}</h3>
             <p class="popular-card-description">{{ item.description }}</p>
-            <ion-button class="detail-button" @click="goToDetail(item.title)"
+            <ion-button class="detail-button" @click="goToDetail(item.id)"
               >Detail</ion-button
             >
           </div>
@@ -29,6 +29,7 @@ import router from "@/router";
 // Lista de artículos populares
 const popularItems = ref([
   {
+    id: 1,
     title: "Morocco's 2030 World Cup Preparations Committee Meets in Fes",
     img: "https://barlamantoday.com/wp-content/smush-webp/2024/03/Copie-de-Copie-de-Copie-de-WEB-SITE-PIC200-1024x568.png.webp",
     description:
@@ -36,13 +37,16 @@ const popularItems = ref([
     alt: "World Cup 2030 banner",
   },
   {
+    id: 2,
     title: "Moroccan Tourism Records Unprecedented 39% Growth in October 2023",
     img: "https://www.moroccoworldnews.com/wp-content/uploads/2023/11/moroccan-tourism-records-unprecedented-39-growth-in-october-2023-800x532.jpeg",
     description:
       "Morocco’s tourism success in September, initially considered a record-breaking month with 960,000 tourists, has pointed for some to a sustained growth trajectory.",
     alt: "Morocco’s tourism",
   },
+
   {
+    id: 3,
     title: "Golf in Morocco: More than One Hundred Years of History…",
     img: "https://www.visitmorocco.com/golf/wp-content/uploads/2023/01/VM-story-golf-morocco1.png",
     description: "Discover the rich history of golf in Morocco.",
@@ -51,8 +55,8 @@ const popularItems = ref([
 ]);
 
 // Función para redirigir a la página de detalles
-const goToDetail = (title: string) => {
-  router.push({ name: "DetailsPage", params: { title } });
+const goToDetail = (id: number) => {
+  router.push({ path: `/details/${encodeURIComponent(id)}` });
 };
 </script>
 

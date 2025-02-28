@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "@ionic/vue-router";
 import { RouteRecordRaw } from "vue-router";
-import ExampleVue from "@/components/TabsComponent.vue";
+import TabsComponent from "@/components/TabsComponent.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
 
   {
     path: "/",
-    component: ExampleVue,
+    component: TabsComponent,
     children: [
       {
         path: "login",
@@ -92,12 +92,16 @@ const routes: Array<RouteRecordRaw> = [
         path: "contact",
         component: () => import("@/views/ContactPage.vue"),
       },
+      {
+        path: "details/:id",
+        component: () => import("@/views/DetailsPaege.vue"),
+      },
     ],
   },
 ];
 
 const router = createRouter({
-  // Use: createWebHistory(process.env.BASE_URL) in your app
+  // Use: createWebHistory(process.env.BASE_URL) in app
 
   history: createWebHistory(),
   routes,
