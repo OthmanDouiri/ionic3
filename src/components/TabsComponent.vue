@@ -58,7 +58,11 @@
         </ion-buttons>
 
         <ion-buttons slot="start">
-          <ion-button color="light" @click="$router.back()">
+          <ion-button
+            color="light"
+            @click="$router.back()"
+            v-if="route.path !== '/home'"
+          >
             <ion-icon :icon="arrowBack" />
           </ion-button>
         </ion-buttons>
