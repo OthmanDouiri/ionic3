@@ -77,7 +77,6 @@ A modern cross-platform mobile application built with Ionic Framework and Vue.js
 1. **Clone the repository**
    ```bash
    git clone https://github.com/OthmanDouiri/ionic3
-   cd myApp
    ```
 
 2. **Install dependencies**
